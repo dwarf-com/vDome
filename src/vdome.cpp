@@ -1,4 +1,5 @@
 #include "vdome.h"
+#include "ofAppWinWindow.h"
 
 /********************************************
     
@@ -105,6 +106,8 @@ void vdome::setup(){
     // xml settings
     xmlFile = "settings.xml";
     loadXML(xmlFile);
+	ofAppWinWindow * window = (ofAppWinWindow*)ofGetWindowPtr();
+	window->hideBorder();
 
 }
 
@@ -486,11 +489,15 @@ void vdome::keyPressed(int key){
             break;
             
         case OF_KEY_LEFT_CONTROL: // control
+            value = altValue;
+            alt = true;
             ctrl = true;
             mod = true;
             break;
             
         case OF_KEY_RIGHT_CONTROL:
+            value = altValue;
+            alt = true;
             ctrl = true;
             mod = true;
             break;
@@ -694,10 +701,14 @@ void vdome::keyReleased(int key) {
             break;
             
         case OF_KEY_LEFT_CONTROL: // control
+            value = orgValue;
+            alt = false;
             ctrl = false;
             mod = false;
             break;
         case OF_KEY_RIGHT_CONTROL:
+            value = orgValue;
+            alt = false;
             ctrl = false;
             mod = false;
             break;

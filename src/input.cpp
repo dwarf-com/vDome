@@ -1,4 +1,5 @@
 #include "input.h"
+#include "ofAppWinWindow.h"
 
 /******************************************
  
@@ -40,15 +41,18 @@ void Input::setup(){
     // create input
     switch(mode){
         case 1: // capture
-            capture.setDeviceID(0);
-            capture.setDesiredFrameRate(frameRate);
-            capture.initGrabber(resolution, resolution);
-            texture = capture.getTextureReference();
+            //capture.setDeviceID(0);
+            //capture.setDesiredFrameRate(frameRate);
+            //capture.initGrabber(resolution, resolution);
+            //texture = capture.getTextureReference();
+
+	
+
             break;
         case 2: // video
             video.setPixelFormat(OF_PIXELS_RGB);
 			#ifdef TARGET_WIN32
-				video.loadMovie("media/test.avi"); 
+				video.loadMovie("media/CarbonX6.1surround-h264_x264_xvid.avi"); 
 			#endif
 			#ifdef TARGET_OSX
 				video.loadMovie("media/test.mov"); 
@@ -119,12 +123,23 @@ void Input::bind(){
 		else if (mode == 4)
 			syphon.bind();
     #endif
-	if (mode != 3 && mode != 4) {
-		texture.bind();
-	}
+	//if (mode != 3 && mode != 4) {
+	//	texture.bind();
+	//}
+
+		
+	ofSetColor(255);
+   	ofAppWinWindow * window = (ofAppWinWindow*)ofGetWindowPtr();
+	window->DatapathBind();
 }
 
 void Input::unbind(){
+
+   	ofAppWinWindow * window = (ofAppWinWindow*)ofGetWindowPtr();
+	window->DatapathUnbind();
+
+	return;
+
 	#ifdef TARGET_OSX
 		if (mode == 3)
 			hap.getTexture()->unbind();
@@ -143,6 +158,7 @@ void Input::unbind(){
  ********************************************/
 
 void Input::update(){
+	return;
     if (mode == 2)
         video.update();
 	else if (mode == 1)

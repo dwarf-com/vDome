@@ -76,6 +76,9 @@
     <ClCompile Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.cpp">
       <Filter>addons\ofxMSAInteractiveObject\src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ofAppWinWindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -155,6 +158,27 @@
     </Filter>
     <Filter Include="addons\ofxMSAInteractiveObject\src">
       <UniqueIdentifier>{6c251e27-d306-42ba-84ef-8076934cb960}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath">
+      <UniqueIdentifier>{c40d9fa5-3b21-467c-8179-3e7411e72bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath\libs">
+      <UniqueIdentifier>{3c09a590-f15b-46af-a6ac-c920eff3d61a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath\libs\include">
+      <UniqueIdentifier>{c98a6aff-807e-401b-b1dc-dbd2d849b2a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath\libs\libs">
+      <UniqueIdentifier>{eb18f0ab-e1bf-4fae-947d-ffa08efb8552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath\libs\libs\win32">
+      <UniqueIdentifier>{5ae76084-3d1c-4a38-a960-3b2fbda98794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath\libs\libs\win32\Debug">
+      <UniqueIdentifier>{20858a8b-d872-4a07-9656-286a13213806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatapath\libs\libs\win32\Release">
+      <UniqueIdentifier>{e4b02498-61ee-4414-83b8-5197a2144b14}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -494,8 +518,43 @@
     <ClInclude Include="..\..\..\addons\ofxMSAInteractiveObject\src\ofxMSAInteractiveObject.h">
       <Filter>addons\ofxMSAInteractiveObject\src</Filter>
     </ClInclude>
+    <ClInclude Include="src\ofAppWinWindow.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\API.H">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\audio.h">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\AUDIOAPI.H">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\AUDIOCAP.H">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\RGB.H">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\RGBAPI.H">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\RGBERROR.H">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatapath\libs\include\vidstd.h">
+      <Filter>addons\ofxDatapath\libs\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\addons\ofxDatapath\libs\lib\win32\Release\RGBEasy.lib">
+      <Filter>addons\ofxDatapath\libs\libs\win32\Release</Filter>
+    </Library>
+    <Library Include="..\..\..\addons\ofxDatapath\libs\lib\win32\Debug\RGBEasy.lib">
+      <Filter>addons\ofxDatapath\libs\libs\win32\Debug</Filter>
+    </Library>
   </ItemGroup>
 </Project>
