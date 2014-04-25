@@ -28,6 +28,8 @@ public:
 	void setWindowPosition(int x, int y);
 	void setWindowShape(int w, int h);
 
+	void keepWindowOnTop(bool val);
+
 	ofPoint		getWindowPosition();
 	ofPoint		getWindowSize();
 	

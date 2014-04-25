@@ -108,7 +108,12 @@ void vdome::setup(){
     loadXML(xmlFile);
 	ofAppWinWindow * window = (ofAppWinWindow*)ofGetWindowPtr();
 	window->hideBorder();
+	window->keepWindowOnTop(true);
 
+	HWND handleWindow;
+	AllocConsole();
+	handleWindow = FindWindowA("ConsoleWindowClass", NULL);
+	ShowWindow(handleWindow, 0);
 }
 
 

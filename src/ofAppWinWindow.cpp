@@ -56,7 +56,7 @@ unsigned __stdcall WaitRender(void *data);
 string getErrorString(int error);
 
 // DATAPATH
-#define NUM_BUFFERS 5
+#define NUM_BUFFERS 10
 
 
 
@@ -274,13 +274,13 @@ static void DatapathInit1(){
 
 	int error = 0;
 	error = RGBLoad(&hRGBDLL);
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	error = RGBOpenInput(0, &hRGB);	
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	error = RGBGetInputSignalType(uInput,&gSignalType,&gWidth,&gHeight,&gRefreshRate);
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	int j;
     for (j=0; j<NUM_BUFFERS; j++)
@@ -490,13 +490,13 @@ static void DatapathInit3(){
 
 	/* Set Capture format. */
     error = RGBSetPixelFormat ( hRGB, PIXELFORMAT(gRgbFormat) );
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	error = RGBSetFrameCapturedFn(hRGB, FrameCapturedFn, 0);
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	 error = RGBSetOutputSize (hRGB, gWidth, gHeight);
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	int j;
 
@@ -508,14 +508,14 @@ static void DatapathInit3(){
     }
 
     error = RGBUseOutputBuffers ( hRGB, TRUE );
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 
 	if ( error == 0 ){
 		gBChainBuffer = TRUE;
     }
 
 	error = RGBStartCapture(hRGB);
-	std::cout << getErrorString(error) << endl;
+	//std::cout << getErrorString(error) << endl;
 }
 
 
@@ -737,12 +737,8 @@ static bool ctrlK = false;
 static int char2OFKey(TCHAR ch) {
 	int key = ch;
 	
-	if (altK) {
-		cout << ch << endl;
-
-	}
 	// letters
-	else if (ch >= 65 && ch <= 90) {
+	 if (ch >= 65 && ch <= 90) {
 		if (!shiftK)
 			key = ch + 32;
 	}
@@ -1096,6 +1092,17 @@ void ofAppWinWindow::hideBorder(){
 void ofAppWinWindow::showBorder(){
 	SetWindowLong(hWnd, WS_OVERLAPPEDWINDOW, 0);
 	ShowWindow(hWnd, SW_NORMAL);
+}
+
+//------------------------------------------------------------
+void ofAppWinWindow::keepWindowOnTop(bool val){
+	RECT rect;
+	GetWindowRect(hWnd, &rect);
+
+	if (val)
+		SetWindowPos(hWnd, HWND_TOPMOST, rect.left, rect.top, rect.right-rect.left, rect.bottom-rect.top, NULL);
+	else 
+		SetWindowPos(hWnd, NULL, rect.left, rect.top, rect.right-rect.left, rect.bottom-rect.top, NULL);
 }
 
 //------------------------------------------------------------
